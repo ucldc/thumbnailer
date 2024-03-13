@@ -1,0 +1,10 @@
+services:
+  thumbnailer:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: thumbnailer
+    environment:
+      - S3_ENDPOINT=https://s3-us-west-2.amazonaws.com/rikolti-content/thumbnails
+    ports:
+      - "8888:8888"

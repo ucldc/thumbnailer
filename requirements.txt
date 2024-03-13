@@ -1,0 +1,6 @@
+pilbox
+Pillow==9.5.0
+boto
+tornado
+basin
+python-magic
