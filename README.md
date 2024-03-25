@@ -2,7 +2,7 @@
 
 [pilbox extension](http://agschwender.github.io/pilbox/#extension) to generate thumbnails out static files stored in a configured s3 bucket.  Will run in fargate behind cloudfront.  Runs on `http://localhost:8888/` by default.
 
-Only one URL pattern is supported `http://localhost:8888/{mode}/{width}x{height}/{md5}`
+Only one URL pattern is supported `http://localhost:8888/{mode}/{width}x{height}/{collection_id}/{md5}`
 
 `mode` is `clip`, `crop`, `fill`, or `scale`
 
@@ -11,7 +11,7 @@ Only one URL pattern is supported `http://localhost:8888/{mode}/{width}x{height}
 ```
 docker build -t thumbnailer .
 docker compose up -d
-localhost:8888/<mode>/<width>x<height>/<md5> (ex: http://localhost:8888/clip/500x500/143f16a151f5033af387c9e1beb3034a)
+localhost:8888/<mode>/<width>x<height>/<collection_id>/<md5> (ex: http://localhost:8888/clip/500x500/12903/05b191ddf0e0353b04b6a44b91e680b2)
 ```
 
 ```

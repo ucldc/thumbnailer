@@ -13,10 +13,10 @@ class ThumbnailApplication(PilboxApplication):
     def get_handlers(self):
         # URL regex to handler mapping
         return [
-            (r"^/([^/]+)/(\d+)x(\d+)/([a-fA-F\d]{32})$", ThumbnailImageHandler),
-            (r"^/([^/]+)/(\d+)x(\d+)/.*$", ThumbnailImageHandler)
+            (r"^/([^/]+)/(\d+)x(\d+)/(\d+)/([a-fA-F\d]{32})$", ThumbnailImageHandler),
+            (r"^/([^/]+)/(\d+)x(\d+)/(\d+)/.*$", ThumbnailImageHandler)
         ]
-        #            mode, w, h, md5
+        #            mode, w, h, collection_id, md5
 
 
 class ThumbnailImageHandler(ImageHandler):
@@ -25,8 +25,8 @@ class ThumbnailImageHandler(ImageHandler):
         self.settings['content_type_from_image'] = True
 
     @tornado.gen.coroutine
-    def get(self, mode, w, h, md5='0d6cc125540194549459df758af868a8'):
-        url = f"{os.getenv('S3_ENDPOINT')}/{md5}"
+    def get(self, mode, w, h, collection_id, md5):
+        url = f"{os.getenv('S3_ENDPOINT')}/{collection_id}/{md5}"
         self.args.update(dict(w=w, h=h, url=url, mode=mode))
         self.validate_request()
         resp = yield self.fetch_image()
