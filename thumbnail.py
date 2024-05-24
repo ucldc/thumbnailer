@@ -14,7 +14,7 @@ class ThumbnailApplication(PilboxApplication):
         # URL regex to handler mapping
         return [
             (r"^/([^/]+)/(\d+)x(\d+)/(\d+)/([a-fA-F\d]{32})$", ThumbnailImageHandler),
-            (r"^/([^/]+)/(\d+)x(\d+)/exhibitions/([a-fA-F\d]{32})$", ThumbnailImageHandler),
+            (r"^/([^/]+)/(\d+)x(\d+)/(exhibitions)/([a-fA-F\d]{32})$", ThumbnailImageHandler),
             (r"^/([^/]+)/(\d+)x(\d+)/(\d+)/.*$", ThumbnailImageHandler)
         ]
         #            mode, w, h, collection_id, md5
