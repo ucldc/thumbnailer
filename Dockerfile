@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM public.ecr.aws/ubuntu/ubuntu:20.04
 LABEL Author="Amy Wieliczka <Amy.Wieliczka@ucop.edu>"
 
 ARG DEBIAN_FRONTEND=noninteractive
